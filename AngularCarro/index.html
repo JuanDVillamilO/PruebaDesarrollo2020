@@ -2,7 +2,7 @@
 <html ng-app="AppIndex">
 <head>
     <meta charset="utf-8">
-    <title>Hola mundo</title>
+    <title>Move Car</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -61,28 +61,6 @@
         <!--<link class="btn btn-primary btn-lg" href="move.html">Mover</link>
         <button class="btn btn-primary btn-lg" ng-click="posicion.html">Obtener Posición</button>-->
     </div>
-
-
-    <hr />
-
-    <table class="table" ng-if="gets != null">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Movimientos</th>
-                <th scope="col">Posicion R</th>
-                <th scope="col">Posicion C</th>
-                <th scope="col">Etapas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr  ng-repeat="response in gets">
-                <th>{{response.moviments}}</th>
-                <td>{{response.posR}}</td>
-                <td>{{response.posC}}</td>
-                <td>{{response.steps}}</td>
-            </tr>
-        </tbody>
-    </table>
 
 </body>
 

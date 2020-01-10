@@ -1,8 +1,5 @@
 angular.module("AppIndex", [])
    .controller("ControllerIn", function ($scope, $http) {
-      $scope.nombre = "Juan";
-      $scope.newPost = {};
-      $scope.responses = [];
       $scope.gets = null;
       $scope.moviments = "";
       $scope.columns = 0;
@@ -42,8 +39,7 @@ angular.module("AppIndex", [])
             data: { "moviments": $scope.moviments }
          }).then(function (response) {
             console.log(response);
-            $scope.posts = response;
-            alert($scope.moviments);
+            $scope.gets = response;
          }, function (error) {
             console.log(error);
          });
