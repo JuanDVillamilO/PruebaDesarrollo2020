@@ -13,7 +13,6 @@ public class Displacement {
 	public Carro ejecutar(int r, int c, Carro car) {
 		try {
 			/** Menú para ingresar datos**/
-			//System.out.println("Ingrese el número de filas para la superficie: ");
 			int rows = r;
 			int columns = c;
 			
