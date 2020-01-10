@@ -24,10 +24,9 @@ public class Test {
 			if(answer.equals("y") || answer.equals("Y")) {
 				if(rows > 0 && columns > 0) {
 					String[][] matrix = new String[rows][columns]; //Creaci贸n de matriz
-					System.out.println(matrix.length + " sad");
-					System.out.println("Posici贸n del carro: 0 Y - 0 - X"); //Posici贸n inicial del carro
+					System.out.println("Posici贸n inicial del carro: 0 Y - 0 - X"); //Posici贸n inicial del carro
 	
-					System.out.println(columns + " - - " + rows);
+					System.out.println("Matriz: Columnas " + columns + " - - Filas " + rows);
 					
 					boolean flag = false;
 					/**Movimientos a realizar por el carro **/
@@ -77,30 +76,21 @@ public class Test {
 		return find;
 	}
 	
-	/**
-	 * VALIDAR EL ORDEN DE LOS PARAM,ETROS
-	 * 
-	 * PENDIENTE
-	 * 
-	 * FALTA MOSTRAR QUE COMANDO SE EJECUTO
-	 * 
-	 */
-	
 	/**Llenado de ArrayList con movimientos**/
 	public static boolean insertData(String movements) { 
 		boolean flag = false;
-		movements = movements.toUpperCase(); //Estandarizar en may鷖culas las letras
-		if(validateChar(movements)) {//Validaci髇 de car醕teres
+		movements = movements.toUpperCase(); //Estandarizar en may锟絪culas las letras
+		if(validateChar(movements)) {//Validaci锟絥 de car锟絚teres
 			String[] mv = movements.split(";");
 			for(int i = 0; i < mv.length; i++) {
 				String[] val = mv[i].split(",");
-				if(isNumeric(val[0]) && !isNumeric(val[1])) {//Validaci髇 estructura de movimiento
+				if(isNumeric(val[0]) && !isNumeric(val[1])) {//Validaci锟絥 estructura de movimiento
 					
-					if(val.length != 2 || val[1].length() > 1)  {//Se valida orden de p醨ametros
-						System.out.println("Cadena invalida, intente de nuevo INSERT DATA TAMA袿 ARREGLO");
+					if(val.length != 2 || val[1].length() > 1)  {//Se valida orden de p锟絩ametros
+						System.out.println("Cadena invalida, intente de nuevo INSERT DATA TAMA锟絆 ARREGLO");
 						return flag;
 					}
-					//Validaci髇 estructura de la direcci髇 del movimiento
+					//Validaci锟絥 estructura de la direcci锟絥 del movimiento
 					if(!val[1].contains("N") && !val[1].contains("S") && !val[1].contains("O") && !val[1].contains("E")){
 						System.out.println("Cadena invalida, intente de nuevo  INSERT DATA LETRAS");
 						return flag;
@@ -108,7 +98,7 @@ public class Test {
 					move.add(val); //ingreso de movimiento a lista de movimientos
 					
 				}else {
-					System.out.println("Cadena invalida, el orden de los valores esta al rev閟");
+					System.out.println("Cadena invalida, el orden de los valores esta al rev锟絪");
 					return flag;
 				}
 					
@@ -123,40 +113,46 @@ public class Test {
 	/**Validaci贸n de la direcci贸n y movimiento de carro**/
 	public static int[] moveCar(int steps, String direction, int posRow, int posCol, int matrixR, int matrixC) {
 		matrixR--;
-		System.out.println("Tama帽o matrixR: " + matrixR);
 		matrixC--;
-		System.out.println("Tama帽o matrixC: " + matrixC);
 		switch(direction) {
 			case "N":
 				if(steps > (matrixR - posRow)) {
 					posRow = matrixR;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los l铆mites");
 				}else {
 					posRow = posRow + steps;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			case "S":
 				if(steps > posRow) {
 					posRow = 0;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los l铆mites");
 				}else {
 					posRow = posRow - steps;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			case "O":
 				if(steps > posCol) {
 					posCol = 0;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los l铆mites");
 				}else {
 					posCol = posCol - steps;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			case "E":
 				if(steps > (matrixC - posCol)) {
 					posCol = matrixC;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los l铆mites");
 				}else {
 					posCol = posCol + steps;
+					System.out.println("Posici贸n actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			default:

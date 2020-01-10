@@ -66,9 +66,7 @@ public class Displacement {
 		return find;
 	}
 	
-	/**
-	 * VALIDAR EL ORDEN DE LOS PARAM,ETROS
-	 * 
+	/** 
 	 * PENDIENTE
 	 * 
 	 * FALTA MOSTRAR QUE COMANDO SE EJECUTO
@@ -110,42 +108,48 @@ public class Displacement {
 	}
 	
 	/**Validación de la dirección y movimiento de carro**/
-	public int[] moveCar(int steps, String direction, int posRow, int posCol, int matrixR, int matrixC) {
+	public static int[] moveCar(int steps, String direction, int posRow, int posCol, int matrixR, int matrixC) {
 		matrixR--;
-		System.out.println("Tamaño matrixR: " + matrixR);
 		matrixC--;
-		System.out.println("Tamaño matrixC: " + matrixC);
 		switch(direction) {
 			case "N":
 				if(steps > (matrixR - posRow)) {
 					posRow = matrixR;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los límites");
 				}else {
 					posRow = posRow + steps;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			case "S":
 				if(steps > posRow) {
 					posRow = 0;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los límites");
 				}else {
 					posRow = posRow - steps;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			case "O":
 				if(steps > posCol) {
 					posCol = 0;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los límites");
 				}else {
 					posCol = posCol - steps;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			case "E":
 				if(steps > (matrixC - posCol)) {
 					posCol = matrixC;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 					System.out.println("Se ha detenido el avance por salir de los límites");
 				}else {
 					posCol = posCol + steps;
+					System.out.println("Posición actual: Fila " + posRow + " Columna " + posCol + " -- Movimiento: " + steps + " " +  direction);
 				}
 				break;
 			default:
