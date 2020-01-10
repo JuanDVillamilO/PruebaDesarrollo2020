@@ -34,7 +34,6 @@ public class Controller {
 		if(matrix.getColumns() > 0 && matrix.getRows() > 0) {
 			this.matrix = matrix;
 			car = new Carro();
-			System.out.println("ASDASDASDASDSAD");
 			System.out.println("rows: " + this.matrix.getRows() + " columns: " + this.matrix.getColumns());
 		}else {
 			System.out.println("Debe ingresar un valor mayor a 0");
@@ -47,14 +46,15 @@ public class Controller {
 			method = RequestMethod.POST,
 			consumes = "application/json",
 			produces = "application/json")
-    public @ResponseBody void displacement(@Valid @RequestBody Carro car){
+    public @ResponseBody Carro displacement(@Valid @RequestBody Carro car){
 		if(!(matrix == null)) {
 			Displacement dis = new Displacement();
 			this.car = dis.ejecutar(matrix.getRows(), matrix.getColumns(), car);			
 		}else {
+			this.car.setMessage("No se ha configurado la superficie");
 			System.out.println("No se ha configurado la superficie");
 		}
-		//return matrix;
+		return this.car;
 	}
 	
 	
